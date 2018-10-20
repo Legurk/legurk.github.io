@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <style>
+.flip-text {
+	-moz-transform: scaleX(-1);
+	-o-transform: scaleX(-1);
+	-webkit-transform: scaleX(-1);
+	transform: scaleX(-1);
+	-ms-filter: "FlipH";
+	filter: FlipH;
+    
+    text-align: center;
+    vertical-align: middle;
+    line-height: 500px;
+    color: white;
+}        </style>
+<script>
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('txt').innerHTML =
+    h + ":" + m + ":" + s;
+    var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+</script>
+</head>
+
+<body onload="startTime()" bgcolor="black">
+
+<div class="flip-text" id="txt"></div>
+
+</body>
+</html>
